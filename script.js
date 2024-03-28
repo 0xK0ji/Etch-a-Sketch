@@ -5,6 +5,7 @@ const resetBtn = document.querySelector("#reset");
 const box = document.querySelectorAll(".box")
 const colorBtn = document.querySelectorAll(".color-btn");
 let brightness = 100;
+let color = 'red';
 
 function randomize() {
     Math.floor(Math.random() * 256)
@@ -51,20 +52,21 @@ function resetBoard() {
     board.style.filter = `brightness(${brightness}%)`;
 }
 
-function setColor(color) {
-    board.addEventListener('mouseover', (e) => {
-        if (color === 'rainbow') {
-            e.target.style.backgroundColor = `rgb(${randomize()},${randomize()},${randomize()})`;
-        } else {
-            e.target.style.backgroundColor = `${color}`;
-        }
-        board.style.filter = `brightness(${brightness}%)`;
-        brightness -= 0.1;
-});
-}
 
 function randomize() {
     return Math.floor(Math.random() * 256);
+}
+
+function handleMouseOver(e) {
+    console.log('ok');
+    if (color == 'rainbow') {
+        e.target.style.backgroundColor = `rgb(${randomize()},${randomize()},${randomize()})`;
+    } else {
+        e.target.style.backgroundColor = `${color}`;
+    }
+    board.style.filter = `brightness(${brightness}%)`;
+    brightness -= 0.3;
+    
 }
 
 createRow(32);
@@ -73,11 +75,11 @@ resetBtn.addEventListener('click', resetBoard);
 
 colorBtn.forEach(button => {
     button.addEventListener('click', (e) => {
-        let target = e.target        
-        setColor(target.id);
+        color = e.target.id;        
     })}
 );
 
+board.addEventListener('mouseover', handleMouseOver);
 
 
 
