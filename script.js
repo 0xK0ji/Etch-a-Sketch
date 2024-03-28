@@ -57,6 +57,10 @@ function randomize() {
     return Math.floor(Math.random() * 256);
 }
 
+function setColor(e) {
+    color = e.target.id;
+}
+
 function handleMouseOver(e) {
     console.log('ok');
     if (color == 'rainbow') {
@@ -74,10 +78,8 @@ selectBtn.addEventListener('click', changeSize);
 resetBtn.addEventListener('click', resetBoard);
 
 colorBtn.forEach(button => {
-    button.addEventListener('click', (e) => {
-        color = e.target.id;        
-    })}
-);
+    button.addEventListener('click', setColor);
+});
 
 board.addEventListener('mouseover', handleMouseOver);
 
