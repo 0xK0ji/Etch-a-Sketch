@@ -4,7 +4,7 @@ const selectBtn = document.querySelector("#select");
 const resetBtn = document.querySelector("#reset");
 const box = document.querySelectorAll(".box")
 const colorBtn = document.querySelectorAll(".color-btn");
-
+let brightness = 100;
 
 function randomize() {
     Math.floor(Math.random() * 256)
@@ -47,6 +47,8 @@ function deleteBoard() {
 function resetBoard() {
     deleteBoard();
     createRow(32);
+    brightness = 100;
+    board.style.filter = `brightness(${brightness}%)`;
 }
 
 function setColor(color) {
@@ -56,6 +58,8 @@ function setColor(color) {
         } else {
             e.target.style.backgroundColor = `${color}`;
         }
+        board.style.filter = `brightness(${brightness}%)`;
+        brightness -= 0.1;
 });
 }
 
