@@ -76,14 +76,12 @@ function handleMouseOver(e) {
 }
 
 createRow(32);
-selectBtn.addEventListener('click', changeSize);
-resetBtn.addEventListener('click', resetBoard);
 board.addEventListener('mouseover', handleMouseOver);
 
 colorBtn.forEach(button => {
     button.addEventListener('click', setColor);
 });
 
-
-
+resetBtn.addEventListener('click', resetBoard);
+selectBtn.addEventListener('click', changeSize);
 
