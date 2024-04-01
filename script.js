@@ -52,7 +52,7 @@ function resetBoard() {
     deleteBoard();
     createRow(32);
     brightness = 100;
-    board.style.filter = `brightness(${brightness}%)`;
+    //board.style.filter = `brightness(${brightness}%)`;
 }
 
 
