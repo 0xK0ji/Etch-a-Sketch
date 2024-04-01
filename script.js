@@ -70,7 +70,7 @@ function handleMouseOver(e) {
     } else {
         e.target.style.backgroundColor = `${color}`;
     }
-    board.style.filter = `brightness(${brightness}%)`;
+    //board.style.filter = `brightness(${brightness}%)`;
     brightness -= 0.3;
     
 }
